@@ -127,101 +127,15 @@ width:405px;
 padding:5px;
 }
 
-.left {
-float:left;
-width:535px;
-}
-
 .clear {
 clear:both;
 }
 
-
+/*
 .mapHolder {
 width:515px;
 }
-
-
-
-/* SLIMBOX */
-
-#lbOverlay {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	background-color: #000;
-	cursor: pointer;
-}
-
-#lbCenter, #lbBottomContainer {
-	position: absolute;
-	left: 50%;
-	overflow: hidden;
-	background-color: #fff;
-}
-
-.lbLoading {
-	background: #fff url(/images/loading.gif) no-repeat center;
-}
-
-#lbImage {
-	position: absolute;
-	left: 0;
-	top: 0;
-	border: 10px solid #fff;
-	background-repeat: no-repeat;
-}
-
-#lbPrevLink, #lbNextLink {
-	display: block;
-	position: absolute;
-	top: 0;
-	width: 50%;
-	outline: none;
-}
-
-#lbPrevLink {
-	left: 0;
-}
-
-#lbPrevLink:hover {
-	background: transparent url(/images/prevlabel.gif) no-repeat 0% 15%;
-}
-
-#lbNextLink {
-	right: 0;
-}
-
-#lbNextLink:hover {
-	background: transparent url(/images/nextlabel.gif) no-repeat 100% 15%;
-}
-
-#lbBottom {
-	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
-	font-size: 10px;
-	color: #666;
-	line-height: 1.4em;
-	text-align: left;
-	border: 10px solid #fff;
-	border-top-style: none;
-}
-
-#lbCloseLink {
-	display: block;
-	float: right;
-	width: 66px;
-	height: 22px;
-	background: transparent url(/images/closelabel.gif) no-repeat center;
-	margin: 5px 0;
-}
-
-#lbCaption, #lbNumber {
-	margin-right: 71px;
-}
-
-#lbCaption {
-	font-weight: bold;
-}
+*/
 
 </style>
 
@@ -229,6 +143,10 @@ width:515px;
 <body id="page_bg">
 	<div id="wrapper">
 		<div id="mainbody">
+		<div class="right" style="text-align:center">
+			<img src="https://res.cloudinary.com/dgnt0lwhw/image/upload/c_scale,w_405/v1506353867/BalconyView2_aixktz.jpg" width="405" height="304" alt="View from the balcony" title="View from the balcony"/><br/><br/>
+			<button id="galleryLauncher" type="button" >View all photos</button>
+		</div>
 		<div class="left">
 		<h1>Welcome to Casa Vida!</h1>
 <div>
@@ -260,7 +178,7 @@ Access to the apartment for less mobile visitors is possible from street level v
 					<noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b> <br/>
 						  However, it seems JavaScript is either disabled or not supported by your browser. <br/>
 					      To view Google Maps, enable JavaScript by changing your browser options, and then try again. 
-				    </noscript><div align="right"><div id="googlemap12_pmr5s_0" style="width:500px; height:400px"></div></div><script type='text/javascript'>//<![CDATA[
+				    </noscript><div align="right"><div id="googlemap12_pmr5s_0" style="100%; height:400px"></div></div><script type='text/javascript'>//<![CDATA[
 var tst12_pmr5s_0=document.getElementById('googlemap12_pmr5s_0');
 			var tstint12_pmr5s_0;
 			var map12_pmr5s_0;
@@ -351,13 +269,6 @@ Pirates.
 
 
 		</div>
-		<div class="right">
-		
-		<img src="/images/gallery/medium/BalconyView2.JPG" width="405" height="250" alt="View from the balcony" title="View from the balcony"/><br/><br/>
-		
-		<button id="galleryLauncher" type="button" >View photos</button>
-
-</div>
 
 		<div class="clear">
 				
