@@ -360,34 +360,62 @@ Pirates.
 
 <script>
 
-document.getElementById("galleryLauncher").addEventListener("click", function (evt) {
-var pswpElement = document.querySelectorAll('.pswp')[0];
+var items = [];
 
-// build items array
-var items = [
-    {
-        src: 'https://placekitten.com/600/400',
-        w: 600,
-        h: 400
-    },
-    {
-        src: 'https://placekitten.com/1200/900',
-        w: 1200,
-        h: 900
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://res.cloudinary.com/dgnt0lwhw/image/list/website39.json", true);
+xhr.onload = function (e) {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      console.log(xhr.responseText);
+		var json = JSON.parse(xhr.responseText);
+		
+		for (var i=0; i<json.resources.length; i++) {
+			var resource = json.resources[i];
+			var url = "https://res.cloudinary.com/dgnt0lwhw/image/upload/c_scale,w_" + resource.width + ",h_" + resource.height + "/v" + resource.version + "/" + resource.public_id + "." + resource.format;
+			var caption = resource.context && resource.context.custom && resource.context.custom.caption;
+			items.push(
+				{
+					src: url,
+					w: resource.width,
+					h: resource.height,
+					title: caption
+				}
+			);
+		}
+			  
+	  
+    } else {
+      console.error(xhr.statusText);
     }
-];
-
-// define options (if needed)
-var options = {
-    // optionName: 'option value'
-    // for example:
-    index: 0 // start at first slide
+  }
 };
+xhr.onerror = function (e) {
+  console.error(xhr.statusText);
+};
+xhr.send(null);
 
-// Initializes and opens PhotoSwipe
-var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-gallery.init();
-});
+function launchGallery(evt) {
+		if (items.length === 0) {
+			setTimeout(launchGallery, 500);
+			return;
+		}
+		var pswpElement = document.querySelectorAll('.pswp')[0];
+
+		// define options (if needed)
+		var options = {
+			// optionName: 'option value'
+			// for example:
+			index: 0 // start at first slide
+		};
+
+		// Initializes and opens PhotoSwipe
+		var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+		gallery.init();
+	
+}
+
+document.getElementById("galleryLauncher").addEventListener("click", launchGallery);
 
 </script>
 </body>
